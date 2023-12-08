@@ -1,0 +1,121 @@
+/* общие настройки страницы */
+body {
+  /*  убираем отступы  */
+  margin: 0;
+  /* цвет шрифта и сам шрифт */
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* выводим сообщение о конце игры и инструкцию по центру своих блоков */
+#results,
+#instructions {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  /* затемняем фон */
+  background-color: rgba(20, 20, 20, 0.75);
+}
+
+/* сообщение о конце игры не показываем на старте */
+#results {
+  display: none;
+  cursor: default;
+}
+
+/* отступы в текстах */
+#results .content,
+#instructions .content {
+  max-width: 300px;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+/* настройка вывода набранных очков в правом верхнем углу */
+#score {
+  position: absolute;
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  top: 30px;
+  right: 30px;
+}
+
+input {
+  background: 0;
+  border: 0;
+  outline: none;
+  width: 80vw;
+  max-width: 400px;
+  font-size: 1.5em;
+  transition: padding 0.3s 0.2s ease;
+  color: #fff;
+}
+input:focus {
+  padding-bottom: 5px;
+}
+input:focus + .line:after {
+  transform: scaleX(1);
+}
+.field {
+  position: relative;
+}
+.field .line {
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: -8px;
+  background: #bdc3c7;
+}
+.field .line:after {
+  content: " ";
+  position: absolute;
+  float: right;
+  width: 100%;
+  height: 3px;
+  transform: scalex(0);
+  transition: transform 0.3s ease;
+  background: #d39309;
+}
+
+.table-results {
+  margin-top: 20px;
+}
+
+a,
+a:link {
+  background-image: linear-gradient(to right, #54b3d6, #54b3d6 50%, #000 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #fff;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  text-decoration: none;
+}
+
+a:before {
+  content: "";
+  background: #d39309;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  background-position: 0;
+}
+
+a:hover::before {
+  width: 100%;
+}
